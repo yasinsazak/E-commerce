@@ -7,34 +7,30 @@ import Colors from '../../utils/colors';
 export const Input = ({
   theme,
   placeholder,
-  placeholderTextColor,
   value,
   setValue,
   onPress,
   keyboardType,
-  outlineColor,
-  activeOutlineColor,
   right,
   left,
 }) => {
   return (
     <TextInput
       style={styles[theme].input}
-      placeholder={placeholder}
-      placeholderTextColor={placeholderTextColor}
+      label={placeholder}
       onChangeText={setValue}
       value={value}
       keyboardType={keyboardType}
-      outlineColor={outlineColor}
-      activeOutlineColor={activeOutlineColor}
+      outlineColor={Colors.WHITE}
+      activeOutlineColor={Colors.RED}
       mode="outlined"
+      theme={{colors: {text: Colors.WHITE, placeholder: Colors.WHITE}}}
       right={
         right && (
           <TextInput.Icon icon={right} color={Colors.RED} onPress={onPress} />
         )
       }
       left={left && <TextInput.Icon icon={left} color={Colors.RED} />}
-      // keyboardType='email-address'
     />
   );
 };

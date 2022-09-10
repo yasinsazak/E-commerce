@@ -1,12 +1,29 @@
-import React from 'react';
-import {View, Image} from 'react-native';
+import React, {useEffect} from 'react';
+import {View, Image, FlatList} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 
 import styles from './style';
 
-import {Input} from '../../components';
+import {Card, Input} from '../../components';
 import Colors from '../../utils/colors';
+import {getFirstCategories} from '../../api';
 
 export const HomeScreen = () => {
+  const dispatch = useDispatch();
+
+  const {data, status, isLoading} = useSelector(state => state.firstCategories);
+
+  const renderItem = ({item}) => {
+    return <Card />;
+  };
+
+  useEffect(() => {
+    dispatch(getFirstCategories());
+  }, [status]);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
   return (
     <View style={styles.body}>
       <Image
@@ -19,14 +36,13 @@ export const HomeScreen = () => {
         keyboardType="email-address"
         theme="secondary"
         placeholder={'Ara'}
-        placeholderTextColor={Colors.RED}
         value={null}
         setValue={null}
         onPress={null}
         right="magnify"
-        outlineColor={Colors.WHITE}
-        activeOutlineColor={Colors.RED}
       />
+      <View style={styles.card_container}></View>
+      <FlatList data={null} renderItem={renderItem} />
     </View>
   );
 };

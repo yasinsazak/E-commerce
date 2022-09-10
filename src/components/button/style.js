@@ -26,9 +26,8 @@ export default StyleSheet.create({
       ...baseStyle.body,
       borderWidth: 1,
       borderColor: Colors.RED,
-      width: '85%',
+      width: '75%',
       margin: 5,
-      marginLeft: 50,
     },
     buttonText: {
       ...baseStyle.buttonText,
@@ -43,9 +42,8 @@ export default StyleSheet.create({
       backgroundColor: Colors.BLACK,
       borderWidth: 1,
       borderColor: Colors.RED,
-      width: '85%',
+      width: '75%',
       margin: 5,
-      marginLeft: 50,
     },
     buttonText: {
       ...baseStyle.buttonText,

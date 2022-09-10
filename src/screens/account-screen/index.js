@@ -3,10 +3,11 @@ import React from 'react';
 
 import styles from './style';
 import {Button, Input} from '../../components';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../../utils/colors';
+import {useNavigation} from '@react-navigation/native';
 
 export const AccountScreen = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.body}>
       <Image
@@ -30,11 +31,19 @@ export const AccountScreen = () => {
         activeOutlineColor={Colors.RED}
       />
       <Button theme="secondary" buttonText={'Giriş Yap'} />
-      <Button theme="tertiary" buttonText={'Kayıt Ol'} />
+      <Button
+        theme="tertiary"
+        buttonText={'Kayıt Ol'}
+        onPress={() => {
+          navigation.navigate('register-screen');
+        }}
+      />
       <Button
         theme="quaternary"
         buttonText={'Şifremi unuttum'}
-        // onPress={() => navigation.navigate('')}
+        onPress={() => {
+          navigation.navigate('register-screen');
+        }}
       />
     </View>
   );

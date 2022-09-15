@@ -9,6 +9,7 @@ import {
   getBrandsSlice,
   getMainProductsSlice,
   getFirstCategoriesSlice,
+  getSecondCategoriesSlice,
 } from './slice';
 
 import logger from 'redux-logger';
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   brands: getBrandsSlice,
   mainProducts: getMainProductsSlice,
   firstCategories: getFirstCategoriesSlice,
+  secondCategories: getSecondCategoriesSlice,
 });
 
 export const store = configureStore({

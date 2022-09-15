@@ -6,6 +6,7 @@ const API_KEY = 'SSVa97j7z83nMXDzhmmdHSSLPG9NueDf3J6BgCSS';
 
 axios.defaults.baseURL = API_BASE_URL;
 axios.defaults.headers['X-API-KEY'] = API_KEY;
+axios.defaults.headers['Content-Type'] = 'multipart/form-data';
 
 const getSliders = createAsyncThunk('sliders/getSliders', async () => {
   try {
@@ -52,4 +53,25 @@ const getFirstCategories = createAsyncThunk(
   },
 );
 
-export {getSliders, getBrandsSliders, getMainProducts, getFirstCategories};
+const getSecondCategories = createAsyncThunk(
+  'secondCategories/getSecondCategories',
+  async data => {
+    const {id} = data;
+    const params = new FormData();
+    params.append('id', id);
+    try {
+      const res = await axios.post('secondCategories');
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+export {
+  getSliders,
+  getBrandsSliders,
+  getMainProducts,
+  getFirstCategories,
+  getSecondCategories,
+};

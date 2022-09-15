@@ -6,15 +6,18 @@ export default StyleSheet.create({
     margin: 10,
     borderWidth: 1,
     borderColor: Colors.RED,
+    borderRadius: 10,
   },
   image: {
-    width: 150,
+    width: 170,
     height: 150,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
   },
   title: {
     color: Colors.WHITE,
-    fontSize: 12,
+    fontSize: 14,
     textAlign: 'center',
-    marginTop: 5,
+    marginVertical: 5,
   },
 });

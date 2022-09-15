@@ -1,3 +1,6 @@
 export * from './input';
 export * from './button';
-export * from './card';
+export * from './main_slider';
+export * from './brands_sliders';
+export * from './products';
+export * from './categories';

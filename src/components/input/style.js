@@ -17,5 +17,9 @@ export default StyleSheet.create({
   }),
   secondary: StyleSheet.create({
     ...baseStyle,
+    input: {
+      ...baseStyle.input,
+      width: '95%',
+    },
   }),
 });

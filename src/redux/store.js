@@ -4,12 +4,20 @@ import {
   getDefaultMiddleware,
 } from '@reduxjs/toolkit';
 
-import {firstCategoriesSlice} from './slice';
+import {
+  getSlidersSlice,
+  getBrandsSlice,
+  getMainProductsSlice,
+  getFirstCategoriesSlice,
+} from './slice';
 
 import logger from 'redux-logger';
 
 const reducer = combineReducers({
-  firstCategories: firstCategoriesSlice,
+  sliders: getSlidersSlice,
+  brands: getBrandsSlice,
+  mainProducts: getMainProductsSlice,
+  firstCategories: getFirstCategoriesSlice,
 });
 
 export const store = configureStore({

@@ -6,15 +6,17 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.BLACK,
   },
-  titleBody: {
-    height: 50,
-    borderWidth: 1,
-    borderBottomColor: Colors.RED,
-    justifyContent: 'center',
-  },
   title: {
     textAlign: 'center',
+    textAlignVertical: 'center',
+    height: 50,
     color: Colors.RED,
     fontSize: 20,
+    borderWidth: 1,
+    borderBottomColor: Colors.RED,
+  },
+  inner_container: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 });

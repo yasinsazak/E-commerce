@@ -15,7 +15,13 @@ export const RegisterScreen = () => {
           value={null}
           setValue={null}
         />
-        <Input theme="primary" placeholder="Soyisim" />
+        <Input
+          theme="primary"
+          placeholder="Soyisim"
+          value={null}
+          setValue={null}
+          onPress={null}
+        />
         <Input theme="primary" placeholder="Telefon" />
       </View>
       <View style={style.container}>

@@ -4,10 +4,10 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import style from './style';
 
-import {Categories} from '../../components';
-import {getSecondCategories} from '../../api';
+import {Categories} from '  ../../components';
+import {getThirdCategories} from '../../api';
 
-export const SecondCategoriesScreen = ({item}) => {
+export const thirdCategoriesScreen = ({item}) => {
   const {
     data: second_categories_data,
     status: second_categories_status,

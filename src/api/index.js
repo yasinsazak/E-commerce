@@ -56,11 +56,26 @@ const getFirstCategories = createAsyncThunk(
 const getSecondCategories = createAsyncThunk(
   'secondCategories/getSecondCategories',
   async data => {
-    const {id} = data;
+    const {first_category_id} = data;
     const params = new FormData();
-    params.append('id', id);
+    params.append('first_category_id', first_category_id);
     try {
-      const res = await axios.post('secondCategories');
+      const res = await axios.post('secondCategories', params);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const getThirdCategories = createAsyncThunk(
+  'thirdCategories/getThirdCategories',
+  async data => {
+    const {second_category_id} = data;
+    const params = new FormData();
+    params.append('second_category_id', second_category_id);
+    try {
+      const res = await axios.post('thirdCategories', params);
       return res.data;
     } catch (error) {
       console.log(error);
@@ -74,4 +89,5 @@ export {
   getMainProducts,
   getFirstCategories,
   getSecondCategories,
+  getThirdCategories,
 };

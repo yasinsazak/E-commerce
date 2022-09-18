@@ -2,14 +2,30 @@ import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {CategoriesScreen} from '../screens';
+import {CategoriesScreen, SecondCategoriesScreen} from '../screens';
+import Colors from '../utils/colors';
 
 const Stack = createNativeStackNavigator();
 
 export const CategoryStack = () => {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="categories-screen" component={CategoriesScreen} />
+    <Stack.Navigator>
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="categories-screen"
+        component={CategoriesScreen}
+      />
+      <Stack.Screen
+        name="second-categories-screen"
+        component={SecondCategoriesScreen}
+        options={({route}) => ({
+          title: route.params.title,
+          headerTintColor: Colors.RED,
+          headerStyle: {backgroundColor: Colors.BLACK},
+        })}
+      />
     </Stack.Navigator>
   );
 };

@@ -1,9 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-import {getSecondCategories} from '../../api';
+import {getThirdCategories} from '../../api';
 
-export const getSecondCategoriesSlice = createSlice({
-  name: 'secondCategories',
+export const getThirdCategoriesSlice = createSlice({
+  name: 'thirdCategories',
   initialState: {
     data: undefined,
     status: undefined,
@@ -11,20 +11,20 @@ export const getSecondCategoriesSlice = createSlice({
     base_url: undefined,
   },
   extraReducers: {
-    [getSecondCategories.pending]: state => {
+    [getThirdCategories.pending]: state => {
       state.isLoading = true;
     },
-    [getSecondCategories.fulfilled]: (state, action) => {
+    [getThirdCategories.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.data = action.payload.data;
       state.status = action.payload.status;
       state.base_url = action.payload.image_path;
     },
-    [getSecondCategories.rejected]: (state, action) => {
+    [getThirdCategories.rejected]: (state, action) => {
       state.isLoading = false;
       state.status = action.payload.status;
     },
   },
 });
 
-export default getSecondCategoriesSlice.reducer;
+export default getThirdCategoriesSlice.reducer;

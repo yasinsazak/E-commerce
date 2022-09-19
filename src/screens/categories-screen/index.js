@@ -5,10 +5,12 @@ import {useDispatch, useSelector} from 'react-redux';
 import style from './style';
 
 import {Categories} from '../../components';
-import {getFirstCategories} from '../../api';
+import {getFirstCategories, getSecondCategories} from '../../api';
+import {useNavigation} from '@react-navigation/native';
 
-export const CategoriesScreen = () => {
+export const CategoriesScreen = ({item}) => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const {
     data: categories_data,
@@ -18,7 +20,7 @@ export const CategoriesScreen = () => {
   } = useSelector(state => state.firstCategories);
 
   const renderCategories = ({item}) => {
-    return <Categories item={item} url={categories_base_url} />;
+    return <Categories item={item} url={categories_base_url} isSecond />;
   };
 
   useEffect(() => {

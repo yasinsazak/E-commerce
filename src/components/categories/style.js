@@ -7,6 +7,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.RED,
     borderRadius: 10,
+    width: 170,
   },
   image: {
     width: 170,

@@ -7,7 +7,7 @@ import style from './style';
 import {Categories} from '../../components';
 import {getSecondCategories} from '../../api';
 
-export const SecondCategoriesScreen = ({item}) => {
+export const SecondCategoriesScreen = () => {
   const {
     data: second_categories_data,
     status: second_categories_status,

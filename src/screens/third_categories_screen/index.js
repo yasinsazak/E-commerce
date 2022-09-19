@@ -4,26 +4,26 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import style from './style';
 
-import {Categories} from '  ../../components';
+import {Categories} from '../../components';
 import {getThirdCategories} from '../../api';
 
-export const thirdCategoriesScreen = ({item}) => {
+export const ThirdCategoriesScreen = () => {
   const {
-    data: second_categories_data,
-    status: second_categories_status,
-    isLoading: second_categories_isLoading,
-    base_url: second_categories_base_url,
-  } = useSelector(state => state.secondCategories);
+    data: third_categories_data,
+    status: third_categories_status,
+    isLoading: third_categories_isLoading,
+    base_url: third_categories_base_url,
+  } = useSelector(state => state.thirdCategories);
 
-  const renderSecondCategories = ({item}) => {
-    return <Categories item={item} url={second_categories_base_url} />;
+  const renderThirdCategories = ({item}) => {
+    return <Categories item={item} url={third_categories_base_url} />;
   };
   return (
     <View style={style.body}>
       <View style={style.inner_container}>
         <FlatList
-          data={second_categories_data}
-          renderItem={renderSecondCategories}
+          data={third_categories_data}
+          renderItem={renderThirdCategories}
           keyExtractor={(item, index) => index}
           numColumns="2"
         />

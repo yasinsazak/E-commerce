@@ -20,7 +20,7 @@ export const CategoriesScreen = ({item}) => {
   } = useSelector(state => state.firstCategories);
 
   const renderCategories = ({item}) => {
-    return <Categories item={item} url={categories_base_url} isSecond />;
+    return <Categories item={item} url={categories_base_url} category="0" />;
   };
 
   useEffect(() => {

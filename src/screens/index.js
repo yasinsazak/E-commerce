@@ -5,3 +5,5 @@ export * from './home-screen';
 export * from './register-screen';
 export * from './second_categories_screen';
 export * from './third_categories_screen';
+export * from './fourth-categories-screen';
+export * from './products-screen';

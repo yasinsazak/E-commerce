@@ -6,6 +6,7 @@ import style from './style';
 
 import {Categories} from '../../components';
 import {getThirdCategories} from '../../api';
+import {useEffect} from 'react';
 
 export const ThirdCategoriesScreen = () => {
   const {
@@ -16,8 +17,15 @@ export const ThirdCategoriesScreen = () => {
   } = useSelector(state => state.thirdCategories);
 
   const renderThirdCategories = ({item}) => {
-    return <Categories item={item} url={third_categories_base_url} />;
+    return (
+      <Categories item={item} url={third_categories_base_url} category="2" />
+    );
   };
+
+  useEffect(() => {
+    console.log(third_categories_data);
+  }, [third_categories_status]);
+
   return (
     <View style={style.body}>
       <View style={style.inner_container}>

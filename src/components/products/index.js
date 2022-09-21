@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Image, TouchableOpacity, Text} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
 
 import style from './style';
 

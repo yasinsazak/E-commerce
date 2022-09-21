@@ -6,6 +6,7 @@ import {
   CategoriesScreen,
   SecondCategoriesScreen,
   ThirdCategoriesScreen,
+  ProductsScreen,
 } from '../screens';
 import Colors from '../utils/colors';
 
@@ -33,6 +34,15 @@ export const CategoryStack = () => {
       <Stack.Screen
         name="third-categories-screen"
         component={ThirdCategoriesScreen}
+        options={({route}) => ({
+          title: route.params.title,
+          headerTintColor: Colors.RED,
+          headerStyle: {backgroundColor: Colors.BLACK},
+        })}
+      />
+      <Stack.Screen
+        name="products-screen"
+        component={ProductsScreen}
         options={({route}) => ({
           title: route.params.title,
           headerTintColor: Colors.RED,

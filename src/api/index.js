@@ -83,6 +83,22 @@ const getThirdCategories = createAsyncThunk(
   },
 );
 
+const getProducts = createAsyncThunk('productList/getProducts', async data => {
+  const {category_id, category, per_page, page} = data;
+  const params = new FormData();
+  params.append('category_id', category_id);
+  params.append('category', category);
+  params.append('per_page', per_page);
+  params.append('page', page);
+
+  try {
+    const res = await axios.post('productList', params);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export {
   getSliders,
   getBrandsSliders,
@@ -90,4 +106,5 @@ export {
   getFirstCategories,
   getSecondCategories,
   getThirdCategories,
+  getProducts,
 };

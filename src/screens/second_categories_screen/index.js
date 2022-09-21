@@ -16,7 +16,9 @@ export const SecondCategoriesScreen = () => {
   } = useSelector(state => state.secondCategories);
 
   const renderSecondCategories = ({item}) => {
-    return <Categories item={item} url={second_categories_base_url} />;
+    return (
+      <Categories item={item} url={second_categories_base_url} category="1" />
+    );
   };
   return (
     <View style={style.body}>

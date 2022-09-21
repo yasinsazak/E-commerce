@@ -4,6 +4,7 @@ import getMainProductsSlice from './getMainProductsSlice';
 import getFirstCategoriesSlice from './getFirstCategoriesSlice';
 import getSecondCategoriesSlice from './getSecondCategoriesSlice';
 import getThirdCategoriesSlice from './getThirdCategoriesSlice';
+import getProductsSlice from './getProductsSlice';
 
 export {
   getSlidersSlice,
@@ -12,4 +13,5 @@ export {
   getFirstCategoriesSlice,
   getSecondCategoriesSlice,
   getThirdCategoriesSlice,
+  getProductsSlice,
 };

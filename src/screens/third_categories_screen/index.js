@@ -7,30 +7,46 @@ import style from './style';
 import {Categories} from '../../components';
 import {getThirdCategories} from '../../api';
 import {useEffect} from 'react';
+import {useNavigation} from '@react-navigation/native';
 
-export const ThirdCategoriesScreen = () => {
-  const {
-    data: third_categories_data,
-    status: third_categories_status,
-    isLoading: third_categories_isLoading,
-    base_url: third_categories_base_url,
-  } = useSelector(state => state.thirdCategories);
+export const ThirdCategoriesScreen = ({route}) => {
+  const {id} = route.params;
 
-  const renderThirdCategories = ({item}) => {
-    return (
-      <Categories item={item} url={third_categories_base_url} category="2" />
-    );
-  };
+  const dispatch = useDispatch();
+  const navigation = useNavigation();
+
+  const {data, status, isLoading, base_url} = useSelector(
+    state => state.thirdCategories,
+  );
 
   useEffect(() => {
-    console.log(third_categories_data);
-  }, [third_categories_status]);
+    dispatch(getThirdCategories({second_category_id: id}));
+  }, [status]);
+
+  const renderThirdCategories = ({item}) => {
+    var categoryId;
+    if (item.isNext === undefined) {
+      categoryId = 3;
+    }
+    return (
+      <Categories
+        item={item}
+        url={base_url}
+        onPress={() => {
+          navigation.navigate('products-screen', {
+            categoryId,
+            id: item.id,
+          });
+        }}
+      />
+    );
+  };
 
   return (
     <View style={style.body}>
       <View style={style.inner_container}>
         <FlatList
-          data={third_categories_data}
+          data={data}
           renderItem={renderThirdCategories}
           keyExtractor={(item, index) => index}
           numColumns="2"

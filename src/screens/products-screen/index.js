@@ -6,26 +6,40 @@ import style from './style';
 
 import {Products} from '../../components';
 import {getProducts} from '../../api';
+import {useNavigation} from '@react-navigation/native';
 
 export const ProductsScreen = ({route}) => {
-  const {item} = route.params;
+  const {id, categoryId} = route.params;
+  const per_page = 50;
+  const page = 0;
+
   const dispatch = useDispatch();
-  const {
-    data: products_data,
-    status: products_status,
-    isLoading: products_isLoading,
-    base_url: products_base_url,
-  } = useSelector(state => state.productList);
+  const navigation = useNavigation();
+
+  const {data, status, isLoading, base_url} = useSelector(
+    state => state.productList,
+  );
+
+  useEffect(() => {
+    dispatch(
+      getProducts({
+        category_id: id,
+        category: categoryId,
+        per_page: per_page,
+        page: page,
+      }),
+    );
+  }, [status]);
 
   const renderProducts = ({item}) => {
-    return <Products item={item} url={products_base_url} onPress={null} />;
+    return <Products item={item} url={base_url} onPress={null} />;
   };
 
   return (
     <View style={style.body}>
       <View style={style.innerContainer}>
         <FlatList
-          data={products_data}
+          data={data}
           renderItem={renderProducts}
           keyExtractor={(item, index) => index}
           numColumns="2"

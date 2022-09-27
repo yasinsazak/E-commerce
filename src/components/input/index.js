@@ -13,6 +13,7 @@ export const Input = ({
   keyboardType,
   right,
   left,
+  secureTextEntry,
 }) => {
   return (
     <TextInput
@@ -24,6 +25,7 @@ export const Input = ({
       outlineColor={Colors.WHITE}
       activeOutlineColor={Colors.RED}
       mode="outlined"
+      secureTextEntry={secureTextEntry}
       theme={{colors: {text: Colors.WHITE, placeholder: Colors.WHITE}}}
       right={
         right && (

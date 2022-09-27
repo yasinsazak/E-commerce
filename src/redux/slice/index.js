@@ -5,6 +5,9 @@ import getFirstCategoriesSlice from './getFirstCategoriesSlice';
 import getSecondCategoriesSlice from './getSecondCategoriesSlice';
 import getThirdCategoriesSlice from './getThirdCategoriesSlice';
 import getProductsSlice from './getProductsSlice';
+import getProductsDetailsSlice from './getProductsDetailsSlice';
+import authenticationSlice from './authenticationSlice';
+import basketSlice from './basketSlice';
 
 export {
   getSlidersSlice,
@@ -14,4 +17,7 @@ export {
   getSecondCategoriesSlice,
   getThirdCategoriesSlice,
   getProductsSlice,
+  getProductsDetailsSlice,
+  authenticationSlice,
+  basketSlice,
 };

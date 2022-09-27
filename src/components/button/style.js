@@ -63,4 +63,30 @@ export default StyleSheet.create({
       color: Colors.WHITE,
     },
   }),
+  fifth: StyleSheet.create({
+    ...baseStyle,
+    body: {
+      ...baseStyle.body,
+      width: 300,
+      backgroundColor: 'tranparent',
+      borderBottomWidth: 1,
+      borderColor: Colors.GRAY,
+      marginBottom: 30,
+    },
+    leftContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    buttonText: {
+      ...baseStyle.buttonText,
+      fontSize: 20,
+      textAlign: 'left',
+      paddingLeft: 10,
+    },
+    button: {
+      ...baseStyle.button,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+  }),
 });

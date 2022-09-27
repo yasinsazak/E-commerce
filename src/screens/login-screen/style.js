@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   logo: {
     margin: 30,
-    width: 255,
-    height: 90,
+    width: 255 / 1.2,
+    height: 90 / 1.2,
   },
 });

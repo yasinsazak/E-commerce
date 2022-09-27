@@ -2,9 +2,21 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import {Button} from '../../components/button';
 
+import {BasketCard} from '../../components';
+import {addBasket, getBasket, deleteBasket, editBasket} from '../../api';
+
 import styles from './style';
+import {useDispatch, useSelector} from 'react-redux';
 
 export const BasketScreen = () => {
+  const dispatch = useDispatch();
+
+  const {getResponse, base_url} = useSelector(state => state.basket);
+
+  const renderItem = ({item}) => {
+    return <BasketCard item={item} />;
+  };
+
   return (
     <View style={styles.body}>
       <View style={styles.titleBody}>

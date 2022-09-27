@@ -1,49 +1,48 @@
+import React, {useState} from 'react';
 import {View, Text, Image} from 'react-native';
-import React from 'react';
-
-import styles from './style';
-import {Button, Input} from '../../components';
-import Colors from '../../utils/colors';
+import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 
+import {Button, Input} from '../../components';
+
+import {loginProcess, logoutProcess} from '../../api';
+
+import style from './style';
+import Colors from '../../utils/colors';
+
 export const AccountScreen = () => {
-  const navigation = useNavigation();
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(logoutProcess());
+  };
+
   return (
-    <View style={styles.body}>
+    <View style={style.body}>
       <Image
-        style={styles.logo}
+        style={style.logo}
         source={{
           uri: 'https://narevim.com/panel/uploads/settings_v/logo/narlogo.png',
         }}
       />
-      <Input
-        left="account"
-        theme="primary"
-        placeholder={'E-posta'}
-        outlineColor={Colors.WHITE}
-        activeOutlineColor={Colors.RED}
-      />
-      <Input
-        left="key-variant"
-        theme="primary"
-        placeholder={'Şifre'}
-        outlineColor={Colors.WHITE}
-        activeOutlineColor={Colors.RED}
-      />
-      <Button theme="secondary" buttonText={'Giriş Yap'} />
       <Button
-        theme="tertiary"
-        buttonText={'Kayıt Ol'}
-        onPress={() => {
-          navigation.navigate('register-screen');
-        }}
+        buttonText={'Siparişlerim'}
+        theme="fifth"
+        icon={'clock-check-outline'}
       />
+      <Button buttonText={'Favorilerim'} theme="fifth" icon={'heart'} />
+      <Button buttonText={'Adreslerim'} theme="fifth" icon={'google-maps'} />
       <Button
-        theme="quaternary"
-        buttonText={'Şifremi unuttum'}
-        onPress={() => {
-          navigation.navigate('register-screen');
-        }}
+        buttonText={'Kullanıcı Bilgileri'}
+        theme="fifth"
+        icon={'account'}
+      />
+      <Button buttonText={'Şifre Değiştir'} theme="fifth" icon={'key'} />
+      <Button
+        buttonText={'Çıkış yap'}
+        theme="fifth"
+        icon={'logout'}
+        onPress={logout}
       />
     </View>
   );

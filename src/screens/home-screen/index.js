@@ -7,9 +7,11 @@ import style from './style';
 import {Input, MainSlider, BrandsSlider, Products} from '../../components';
 import Colors from '../../utils/colors';
 import {getSliders, getBrandsSliders, getMainProducts} from '../../api';
+import {useNavigation} from '@react-navigation/native';
 
 export const HomeScreen = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const {data, status, isLoading, base_url} = useSelector(
     state => state.sliders,

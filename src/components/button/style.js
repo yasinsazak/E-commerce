@@ -89,4 +89,16 @@ export default StyleSheet.create({
       justifyContent: 'space-between',
     },
   }),
+  sixth: StyleSheet.create({
+    ...baseStyle,
+    body: {
+      backgroundColor: Colors.BLACK,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    button: {
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  }),
 });

@@ -1,46 +1,41 @@
 import React, {useEffect} from 'react';
 import {View, FlatList} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
 
 import style from './style';
 
-import {Products} from '../../components';
-import {getProducts} from '../../api';
+import {useDispatch, useSelector} from 'react-redux';
+
 import {useNavigation} from '@react-navigation/native';
 
-export const ProductsScreen = ({route}) => {
-  const {id, categoryId} = route.params;
-  const per_page = 200;
-  const page = 0;
+import {Products} from '../../components';
+import {getBrandProductList} from '../../api';
 
+export const BrandProductScreen = ({route}) => {
+  const {id} = route.params;
+  const page = 0;
+  const per_page = 50;
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
   const {data, status, isLoading, base_url} = useSelector(
-    state => state.productList,
+    state => state.brandProductList,
   );
-
   useEffect(() => {
     dispatch(
-      getProducts({
-        category_id: id,
-        category: categoryId,
-        per_page: per_page,
-        page: page,
-      }),
+      getBrandProductList({brand_id: id, page: page, per_page: per_page}),
     );
   }, [status]);
 
-  const renderProducts = ({item}) => {
+  const renderBrandProducts = ({item}) => {
     return <Products item={item} url={base_url} />;
   };
 
   return (
     <View style={style.body}>
-      <View style={style.innerContainer}>
+      <View>
         <FlatList
           data={data}
-          renderItem={renderProducts}
+          renderItem={renderBrandProducts}
           keyExtractor={(item, index) => index}
           numColumns="2"
         />

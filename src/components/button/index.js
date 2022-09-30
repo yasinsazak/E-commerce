@@ -13,11 +13,14 @@ export const Button = ({theme, buttonText, onPress, icon}) => {
           {theme == 'fifth' && (
             <Icon name={icon} size={25} color={Colors.GRAY} />
           )}
-          <Text style={style[theme].buttonText}>{buttonText}</Text>
+          {theme != 'sixth' && (
+            <Text style={style[theme].buttonText}>{buttonText}</Text>
+          )}
         </View>
         {theme == 'fifth' && (
           <Icon name="arrow-right-thin" size={30} color={Colors.GRAY} />
         )}
+        {theme == 'sixth' && <Icon name={icon} size={30} color={Colors.GRAY} />}
       </TouchableOpacity>
     </View>
   );

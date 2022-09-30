@@ -1,30 +1,30 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-import {getProducts} from '../../api';
+import {getBrandProductList} from '../../api';
 
-export const getProductsSlice = createSlice({
-  name: 'productList',
+export const getBrandProductListSlice = createSlice({
+  name: 'brandProductList',
   initialState: {
     data: undefined,
     status: undefined,
-    isLoading: false,
+    isLoading: undefined,
     base_url: undefined,
   },
   extraReducers: {
-    [getProducts.pending]: state => {
+    [getBrandProductList.pending]: state => {
       state.isLoading = true;
     },
-    [getProducts.fulfilled]: (state, action) => {
+    [getBrandProductList.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.data = action.payload.data;
       state.status = action.payload.status;
       state.base_url = action.payload.image_path;
     },
-    [getProducts.rejected]: (state, action) => {
+    [getBrandProductList.rejected]: (state, action) => {
       state.isLoading = false;
       state.status = action.payload.status;
     },
   },
 });
 
-export default getProductsSlice.reducer;
+export default getBrandProductListSlice.reducer;

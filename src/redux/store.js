@@ -15,6 +15,8 @@ import {
   getProductsDetailsSlice,
   authenticationSlice,
   basketSlice,
+  getBrandProductListSlice,
+  getMemberInfoSlice,
 } from './slice';
 
 import logger from 'redux-logger';
@@ -27,9 +29,11 @@ const reducer = combineReducers({
   secondCategories: getSecondCategoriesSlice,
   thirdCategories: getThirdCategoriesSlice,
   productList: getProductsSlice,
+  brandProductList: getBrandProductListSlice,
   authentication: authenticationSlice,
   basket: basketSlice,
   productDetail: getProductsDetailsSlice,
+  memberInfo: getMemberInfoSlice,
 });
 
 export const store = configureStore({

@@ -34,7 +34,7 @@ export const ThirdCategoriesScreen = ({route}) => {
         url={base_url}
         onPress={() => {
           navigation.navigate('products-screen', {
-            categoryId,
+            categoryId: categoryId,
             id: item.id,
           });
         }}

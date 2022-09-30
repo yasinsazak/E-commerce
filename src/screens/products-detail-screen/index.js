@@ -1,34 +1,55 @@
 import React from 'react';
-import {View, Text, Image, ScrollView, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  FlatList,
+  Dimensions,
+} from 'react-native';
 
 import {getProductDetails, addBasket} from '../../api';
 
-import {MainSlider} from '../../components/main_slider';
+import {Button} from '../../components';
+import {ProductDetailSlider} from '../../components';
 
 import style from './style';
 
-import {Products} from '../../components';
 import {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 export const ProductDetailScreen = ({route}) => {
   const item = route.params.item;
 
-  useEffect(() => {
+  const dispatch = useDispatch();
+
+  const {data, status, isLoading, images} = useSelector(
+    state => state.productDetail,
+  );
+
+  const renderImagesSlider = ({item}) => {
     console.log(item);
-  }, [item]);
+    return <ProductDetailSlider url={item} />;
+  };
+
+  const {width} = Dimensions.get('window');
 
   return (
-    <View>
-      <View>
-        <ScrollView>
-          <FlatList item={null} renderitem={null} horizontal />
-          <Text style={style.title}>{item?.title}</Text>
-          <Text>Ürün Hakkında Bilgiler:</Text>
-          <Text style={style.description}>{item?.description}</Text>
+    <View style={style.body}>
+      <ScrollView>
+        <ScrollView horizontal snapToInterval={width}>
+          {images?.map((item, index) => (
+            <Image style={style.image} source={{uri: item}} key={index} />
+          ))}
         </ScrollView>
-      </View>
-      <View>
-        <Text>{item?.price}</Text>
+        <Text style={style.title}>{item?.title}</Text>
+        <Text style={style.title}>Ürün Hakkında Bilgiler:</Text>
+        <Text style={style.description}>{item?.description}</Text>
+      </ScrollView>
+      <View style={style.bottomContainer}>
+        <Text style={style.price}>{item?.price}TL</Text>
+        <Button theme="sixth" icon={'heart-circle-outline'} />
+        <Button theme="primary" buttonText={'Sepete ekle'} />
       </View>
     </View>
   );

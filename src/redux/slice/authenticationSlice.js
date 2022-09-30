@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {loginProcess, logoutProcess} from '../../api';
+import {loginProcess, logoutProcess, registerProcess} from '../../api';
 
 export const authenticationSlice = createSlice({
   name: 'authentication',
@@ -35,6 +35,18 @@ export const authenticationSlice = createSlice({
     },
     [logoutProcess.fulfilled]: state => {
       state.isSignedIn = '0';
+    },
+    [registerProcess.pending]: state => {
+      state.isLoading = true;
+    },
+    [registerProcess.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.data = action.payload.data;
+      state.status = action.payload.status;
+    },
+    [registerProcess.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload.error;
     },
   },
 });

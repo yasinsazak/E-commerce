@@ -36,7 +36,15 @@ export const HomeScreen = () => {
   };
 
   const renderBrandsSlider = ({item}) => {
-    return <BrandsSlider item={item} url={brands_base_url} />;
+    return (
+      <BrandsSlider
+        item={item}
+        url={brands_base_url}
+        onPress={() =>
+          navigation.navigate('brand-product-screen', {id: item.id})
+        }
+      />
+    );
   };
 
   const renderMainProducts = ({item}) => {

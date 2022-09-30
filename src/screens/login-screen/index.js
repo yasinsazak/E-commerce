@@ -14,8 +14,8 @@ export const LoginScreen = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
-  const [mail, setMail] = useState('milkercaki@gmail.com');
-  const [password, setPassword] = useState('1234567');
+  const [mail, setMail] = useState('');
+  const [password, setPassword] = useState('');
   const [passwordVisibilty, setPasswordVisibilty] = useState(true);
 
   const login = () => {
@@ -43,6 +43,7 @@ export const LoginScreen = () => {
         placeholder={'E-posta'}
         outlineColor={Colors.WHITE}
         activeOutlineColor={Colors.RED}
+        keyboardType="email-address"
       />
       <Input
         left="key-variant"
@@ -57,12 +58,18 @@ export const LoginScreen = () => {
         onPress={showPassword}
       />
       <Button theme="secondary" buttonText={'Giriş Yap'} onPress={login} />
-      <Button theme="tertiary" buttonText={'Kayıt Ol'} onPress={null} />
+      <Button
+        theme="tertiary"
+        buttonText={'Kayıt Ol'}
+        onPress={() => {
+          navigation.navigate('register-screen');
+        }}
+      />
       <Button
         theme="quaternary"
         buttonText={'Şifremi unuttum'}
         onPress={() => {
-          navigation.navigate('register-screen');
+          navigation.navigate('lost-password-screen');
         }}
       />
     </View>

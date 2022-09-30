@@ -7,4 +7,8 @@ export * from './register-screen';
 export * from './second_categories_screen';
 export * from './third_categories_screen';
 export * from './products-screen';
+export * from './brand-product-screen';
 export * from './products-detail-screen';
+export * from './lost-password-screen';
+export * from './change-password-screen';
+export * from './member-info-screen';

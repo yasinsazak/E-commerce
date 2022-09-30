@@ -3,11 +3,18 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {LoginScreen, AccountScreen, RegisterScreen} from '../screens';
+import {
+  LoginScreen,
+  AccountScreen,
+  RegisterScreen,
+  LostPasswordScreen,
+  ChangePasswordScreen,
+  MemberInfoScreen,
+} from '../screens';
 import {checkSignedIn} from '../redux/slice/authenticationSlice';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {loginProcess, logoutProcess} from '../api';
+import {loginProcess} from '../api';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +41,15 @@ export const LoginStack = () => {
         <Stack.Screen name="login-screen" component={LoginScreen} />
       )}
       <Stack.Screen name="register-screen" component={RegisterScreen} />
+      <Stack.Screen
+        name="lost-password-screen"
+        component={LostPasswordScreen}
+      />
+      <Stack.Screen
+        name="change-password-screen"
+        component={ChangePasswordScreen}
+      />
+      <Stack.Screen name="member-info-screen" component={MemberInfoScreen} />
     </Stack.Navigator>
   );
 };

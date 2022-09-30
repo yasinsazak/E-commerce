@@ -40,6 +40,49 @@ const logoutProcess = createAsyncThunk(
   },
 );
 
+const registerProcess = createAsyncThunk(
+  'authentication/registerProcess',
+  async data => {
+    const {email, password, telephone, name} = data;
+    const params = new FormData();
+    params.append('email', email);
+    params.append('password', password);
+    params.append('telephone', telephone);
+    params.append('name', name);
+    try {
+      const res = await axios.post('register', params);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const changePasswordProcess = createAsyncThunk(
+  'changePassword/changePasswordProcess',
+  async data => {
+    const {old_password, new_password} = data;
+    const params = new FormData();
+    params.append('old_password', old_password);
+    params.append('new_password', new_password);
+    try {
+      const res = await axios.post('changePassword', params);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const getMemberInfo = createAsyncThunk('memberInfo/getMemberInfo', async () => {
+  try {
+    const res = await axios.get('memberInfo');
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const addBasket = createAsyncThunk('basket/addBasket', async data => {
   const {product_id, qty} = data;
   const params = new FormData();
@@ -177,7 +220,6 @@ const getProducts = createAsyncThunk('productList/getProducts', async data => {
   params.append('category', category);
   params.append('per_page', per_page);
   params.append('page', page);
-
   try {
     const res = await axios.post('productList', params);
     return res.data;
@@ -185,6 +227,23 @@ const getProducts = createAsyncThunk('productList/getProducts', async data => {
     console.log(error);
   }
 });
+
+const getBrandProductList = createAsyncThunk(
+  'brandProductList/getBrandProductList',
+  async data => {
+    const {page, per_page, brand_id, sorting} = data;
+    const params = new FormData();
+    params.append('page', page);
+    params.append('per_page', per_page);
+    params.append('brand_id', brand_id);
+    try {
+      const res = await axios.post('brandProductList', params);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
 
 const getProductDetails = createAsyncThunk(
   'productDetail/getProductDetails',
@@ -204,6 +263,9 @@ const getProductDetails = createAsyncThunk(
 export {
   loginProcess,
   logoutProcess,
+  registerProcess,
+  changePasswordProcess,
+  getMemberInfo,
   addBasket,
   getBasket,
   deleteBasket,
@@ -215,5 +277,6 @@ export {
   getSecondCategories,
   getThirdCategories,
   getProducts,
+  getBrandProductList,
   getProductDetails,
 };

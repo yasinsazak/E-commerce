@@ -18,7 +18,6 @@ export const SecondCategoriesScreen = ({route}) => {
   const {data, status, isLoading, base_url} = useSelector(
     state => state.secondCategories,
   );
-
   useEffect(() => {
     dispatch(getSecondCategories({first_category_id: id}));
   }, [status]);
@@ -45,7 +44,6 @@ export const SecondCategoriesScreen = ({route}) => {
       />
     );
   };
-
   return (
     <View style={style.body}>
       <View style={style.inner_container}>

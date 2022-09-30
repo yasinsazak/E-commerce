@@ -12,6 +12,7 @@ import Colors from '../../utils/colors';
 
 export const AccountScreen = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const logout = () => {
     dispatch(logoutProcess());
@@ -36,8 +37,18 @@ export const AccountScreen = () => {
         buttonText={'Kullanıcı Bilgileri'}
         theme="fifth"
         icon={'account'}
+        onPress={() => {
+          navigation.navigate('member-info-screen');
+        }}
       />
-      <Button buttonText={'Şifre Değiştir'} theme="fifth" icon={'key'} />
+      <Button
+        buttonText={'Şifre Değiştir'}
+        theme="fifth"
+        icon={'key'}
+        onPress={() => {
+          navigation.navigate('change-password-screen');
+        }}
+      />
       <Button
         buttonText={'Çıkış yap'}
         theme="fifth"

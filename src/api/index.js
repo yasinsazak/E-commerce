@@ -83,6 +83,146 @@ const getMemberInfo = createAsyncThunk('memberInfo/getMemberInfo', async () => {
   }
 });
 
+const getCityProcess = createAsyncThunk('getCity/getCityProcess', async () => {
+  try {
+    const res = await axios.get('city');
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+const getTownProcess = createAsyncThunk(
+  'getTown/getTownProcess',
+  async data => {
+    const {city_id} = data;
+    const params = new FormData();
+    params.append('city_id', city_id);
+    try {
+      const res = await axios.post('town', params);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const getAddressList = createAsyncThunk(
+  'getAddress/getAddressList',
+  async () => {
+    try {
+      const res = await axios.get('address');
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const saveAddressProcess = createAsyncThunk(
+  'saveAddress/saveAddressProcess',
+  async data => {
+    const {
+      name,
+      surname,
+      email,
+      telephone,
+      city,
+      town,
+      clear_address,
+      billing_name,
+      billing_surname,
+      billing_email,
+      billing_telephone,
+      billing_city,
+      billing_town,
+      billing_clear_address,
+    } = data;
+    const params = new FormData();
+    params.append('name', name);
+    params.append('surname', surname);
+    params.append('email', email);
+    params.append('telephone', telephone);
+    params.append('city', city);
+    params.append('town', town);
+    params.append('clear_address', clear_address);
+    params.append('billing_name', billing_name);
+    params.append('billing_surname', billing_surname);
+    params.append('billing_email', billing_email);
+    params.append('billing_telephone', billing_telephone);
+    params.append('billing_city', billing_city);
+    params.append('billing_town', billing_town);
+    params.append('billing_clear_address', billing_clear_address);
+    try {
+      const res = await axios.post('save_address', params);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const updateAddressProcess = createAsyncThunk(
+  'updateAddress/updateAddressProcess',
+  async data => {
+    const {
+      name,
+      surname,
+      email,
+      telephone,
+      city,
+      town,
+      clear_address,
+      billing_name,
+      billing_surname,
+      billing_email,
+      billing_telephone,
+      billing_city,
+      billing_town,
+      billing_clear_address,
+      address_id,
+    } = data;
+    const params = new FormData();
+    params.append('name', name);
+    params.append('surname', surname);
+    params.append('email', email);
+    params.append('telephone', telephone);
+    params.append('city', city);
+    params.append('town', town);
+    params.append('clear_address', clear_address);
+    params.append('billing_name', billing_name);
+    params.append('billing_surname', billing_surname);
+    params.append('billing_email', billing_email);
+    params.append('billing_telephone', billing_telephone);
+    params.append('billing_city', billing_city);
+    params.append('billing_town', billing_town);
+    params.append('billing_clear_address', billing_clear_address);
+    params.append('address_id', address_id);
+    try {
+      const res = await axios.post('updateAddress', params);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const removeAddressProcess = createAsyncThunk(
+  'removeAddress/removeAddressProcess',
+  async (data, thunkAPI) => {
+    const {address_id} = data;
+    const params = new FormData();
+    params.append('address_id', address_id);
+    try {
+      const res = await axios.post('removeAddress', params);
+      thunkAPI.dispatch(getAddressList());
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
 const addBasket = createAsyncThunk('basket/addBasket', async data => {
   const {product_id, qty} = data;
   const params = new FormData();
@@ -265,6 +405,12 @@ export {
   logoutProcess,
   registerProcess,
   changePasswordProcess,
+  getCityProcess,
+  getTownProcess,
+  getAddressList,
+  saveAddressProcess,
+  updateAddressProcess,
+  removeAddressProcess,
   getMemberInfo,
   addBasket,
   getBasket,

@@ -12,7 +12,6 @@ import style from './style';
 
 export const ChangePasswordScreen = () => {
   const dispatch = useDispatch();
-  const navigation = useNavigation();
 
   const [oldPassword, setOldPassword] = useState('');
   const [mail, setMail] = useState('');
@@ -65,7 +64,7 @@ export const ChangePasswordScreen = () => {
         }}
       />
       <Input
-        left="account"
+        left="account-key-outline"
         theme="primary"
         value={password}
         setValue={setPassword}
@@ -75,7 +74,7 @@ export const ChangePasswordScreen = () => {
         keyboardType="email-address"
       />
       <Input
-        left="account"
+        left="account-key"
         theme="primary"
         value={newPassword}
         setValue={setNewPassword}
@@ -85,7 +84,7 @@ export const ChangePasswordScreen = () => {
         keyboardType="email-address"
       />
       <Input
-        left="account"
+        left="account-check"
         theme="primary"
         value={rePassword}
         setValue={setRePassword}

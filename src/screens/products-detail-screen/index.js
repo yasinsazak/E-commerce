@@ -17,6 +17,7 @@ import style from './style';
 
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import Colors from '../../utils/colors';
 
 export const ProductDetailScreen = ({route}) => {
   const item = route.params.item;
@@ -48,7 +49,12 @@ export const ProductDetailScreen = ({route}) => {
       </ScrollView>
       <View style={style.bottomContainer}>
         <Text style={style.price}>{item?.price}TL</Text>
-        <Button theme="sixth" icon={'heart-circle-outline'} />
+        <Button
+          theme="sixth"
+          icon={'heart-circle-outline'}
+          size={30}
+          color={Colors.GRAY}
+        />
         <Button theme="primary" buttonText={'Sepete ekle'} />
       </View>
     </View>

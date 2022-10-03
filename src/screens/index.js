@@ -12,3 +12,5 @@ export * from './products-detail-screen';
 export * from './lost-password-screen';
 export * from './change-password-screen';
 export * from './member-info-screen';
+export * from './address-screen';
+export * from './add-address-screen';

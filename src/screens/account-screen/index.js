@@ -32,7 +32,14 @@ export const AccountScreen = () => {
         icon={'clock-check-outline'}
       />
       <Button buttonText={'Favorilerim'} theme="fifth" icon={'heart'} />
-      <Button buttonText={'Adreslerim'} theme="fifth" icon={'google-maps'} />
+      <Button
+        buttonText={'Adreslerim'}
+        theme="fifth"
+        icon={'google-maps'}
+        onPress={() => {
+          navigation.navigate('address-screen');
+        }}
+      />
       <Button
         buttonText={'Kullanıcı Bilgileri'}
         theme="fifth"

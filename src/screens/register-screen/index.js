@@ -1,5 +1,5 @@
-import {View, Text, Alert} from 'react-native';
 import React, {useState} from 'react';
+import {View, Text, Alert} from 'react-native';
 import style from './style';
 
 import {Button, Input} from '../../components';

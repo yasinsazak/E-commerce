@@ -14,8 +14,8 @@ export const LoginScreen = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
-  const [mail, setMail] = useState('');
-  const [password, setPassword] = useState('');
+  const [mail, setMail] = useState('yasin@gmail.com');
+  const [password, setPassword] = useState('12345');
   const [passwordVisibilty, setPasswordVisibilty] = useState(true);
 
   const login = () => {

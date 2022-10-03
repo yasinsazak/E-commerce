@@ -11,6 +11,12 @@ import authenticationSlice from './authenticationSlice';
 import changePasswordSlice from './changePasswordProcessSlice';
 import basketSlice from './basketSlice';
 import getMemberInfoSlice from './getMemberInfoSlice';
+import updateAddressSlice from './updateAddressSlice';
+import getCitySlice from './getCitySlice';
+import getTownSlice from './getTownSlice';
+import getAddressSlice from './getAddressSlice';
+import saveAddressSlice from './saveAddressSlice';
+import removeAddressSlice from './removeAddressSlice';
 
 export {
   getSlidersSlice,
@@ -26,4 +32,10 @@ export {
   changePasswordSlice,
   getMemberInfoSlice,
   basketSlice,
+  getCitySlice,
+  getTownSlice,
+  getAddressSlice,
+  saveAddressSlice,
+  removeAddressSlice,
+  updateAddressSlice,
 };

@@ -5,7 +5,7 @@ import Colors from '../../utils/colors';
 
 import style from './style';
 
-export const Button = ({theme, buttonText, onPress, icon}) => {
+export const Button = ({theme, buttonText, onPress, icon, size, color}) => {
   return (
     <View style={style[theme].body}>
       <TouchableOpacity style={style[theme].button} onPress={onPress}>
@@ -20,7 +20,7 @@ export const Button = ({theme, buttonText, onPress, icon}) => {
         {theme == 'fifth' && (
           <Icon name="arrow-right-thin" size={30} color={Colors.GRAY} />
         )}
-        {theme == 'sixth' && <Icon name={icon} size={30} color={Colors.GRAY} />}
+        {theme == 'sixth' && <Icon name={icon} size={size} color={color} />}
       </TouchableOpacity>
     </View>
   );

@@ -5,7 +5,7 @@ import {View, Image, Alert} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {changePasswordProcess} from '../../api';
 
-import {Input, Button} from '../../components';
+import {Input, Button, Title} from '../../components';
 import Colors from '../../utils/colors';
 
 import style from './style';
@@ -57,6 +57,7 @@ export const ChangePasswordScreen = () => {
 
   return (
     <View style={style.body}>
+      <Title name={'Şifre Değiştir'} />
       <Image
         style={style.logo}
         source={{

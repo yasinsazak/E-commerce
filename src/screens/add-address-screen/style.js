@@ -10,4 +10,14 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  title: {
+    color: Colors.WHITE,
+  },
+  innerContainer: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  text: {
+    color: Colors.WHITE,
+  },
 });

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, ScrollView, Text, Alert} from 'react-native';
-import {Button, Input} from '../../components';
+import {Button, Input, Title} from '../../components';
 import {Picker} from '@react-native-picker/picker';
 import {Checkbox} from 'react-native-paper';
 
@@ -76,9 +76,10 @@ export const AddAddressScreen = () => {
 
   return (
     <View style={style.body}>
+      <Title name={'Yeni Adres'} />
       <ScrollView>
         <View>
-          <Text>İletişim Bilgileri</Text>
+          <Text style={style.text}>İletişim Bilgileri</Text>
           <Input
             left={'account'}
             theme="primary"
@@ -108,20 +109,27 @@ export const AddAddressScreen = () => {
           />
         </View>
         <View>
-          <Text>Adres Bilgileri</Text>
+          <Text style={style.text}>Adres Bilgileri</Text>
           <View style={style.picker}>
-            <Text>Şehir</Text>
+            <Text style={style.text}>Şehir</Text>
             <Picker
+              dropdownIconColor={Colors.WHITE}
               selectedValue={cityId}
               onValueChange={(itemValue, itemIndex) => setCityId(itemValue)}>
               {city_data?.map((item, index) => (
-                <Picker.Item key={index} label={item.title} value={item.id} />
+                <Picker.Item
+                  key={index}
+                  label={item.title}
+                  value={item.id}
+                  color={Colors.WHITE}
+                />
               ))}
             </Picker>
           </View>
           <View style={style.picker}>
-            <Text>İlçe</Text>
+            <Text style={style.text}>İlçe</Text>
             <Picker
+              dropdownIconColor={Colors.WHITE}
               selectedValue={townId}
               onValueChange={(itemValue, itemIndex) => setTownId(itemValue)}>
               {town_status === 'success'
@@ -130,6 +138,7 @@ export const AddAddressScreen = () => {
                       key={index}
                       label={item.title}
                       value={item.id}
+                      color={Colors.WHITE}
                     />
                   ))
                 : null}
@@ -153,12 +162,12 @@ export const AddAddressScreen = () => {
                 setCheck(!check);
               }}
             />
-            <Text>Faturam aynı adrese gönderilsin</Text>
+            <Text style={style.text}>Faturam aynı adrese gönderilsin</Text>
           </View>
         ) : (
           <View style={style.billScreen}>
             <View>
-              <Text>İletişim Bilgileri</Text>
+              <Text style={style.text}>İletişim Bilgileri</Text>
               <Input
                 left={'account'}
                 theme="primary"
@@ -188,10 +197,11 @@ export const AddAddressScreen = () => {
               />
             </View>
             <View>
-              <Text>Adres Bilgileri</Text>
+              <Text style={style.text}>Adres Bilgileri</Text>
               <View style={style.picker}>
-                <Text>Şehir</Text>
+                <Text style={style.text}>Şehir</Text>
                 <Picker
+                  dropdownIconColor={Colors.WHITE}
                   selectedValue={billingCityId}
                   onValueChange={(itemValue, itemIndex) =>
                     setBillingCityId(itemValue)
@@ -201,13 +211,15 @@ export const AddAddressScreen = () => {
                       key={index}
                       label={item.title}
                       value={item.id}
+                      color={Colors.WHITE}
                     />
                   ))}
                 </Picker>
               </View>
               <View style={style.picker}>
-                <Text>İlçe</Text>
+                <Text style={style.text}>İlçe</Text>
                 <Picker
+                  dropdownIconColor={Colors.WHITE}
                   selectedValue={billingTownId}
                   onValueChange={(itemValue, itemIndex) =>
                     setBillingTownId(itemValue)
@@ -218,6 +230,7 @@ export const AddAddressScreen = () => {
                           key={index}
                           label={item.title}
                           value={item.id}
+                          color={Colors.WHITE}
                         />
                       ))
                     : null}
@@ -240,7 +253,7 @@ export const AddAddressScreen = () => {
                   setCheck(!check);
                 }}
               />
-              <Text>Faturam farklı adrese gönderilsin</Text>
+              <Text style={style.text}>Faturam farklı adrese gönderilsin</Text>
             </View>
           </View>
         )}

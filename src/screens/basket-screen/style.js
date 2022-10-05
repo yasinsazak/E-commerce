@@ -1,5 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import Colors from '../../utils/colors';
+
+const screenHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   body: {
@@ -25,6 +27,7 @@ export default StyleSheet.create({
     borderBottomWidth: 0,
     borderColor: Colors.GRAY,
     justifyContent: 'space-between',
+    height: 40,
   },
   bottomTextContainer: {
     marginLeft: 10,
@@ -37,5 +40,8 @@ export default StyleSheet.create({
   },
   price: {
     color: Colors.RED,
+  },
+  products: {
+    height: screenHeight - 180,
   },
 });

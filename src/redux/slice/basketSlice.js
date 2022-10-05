@@ -7,6 +7,7 @@ export const basketSlice = createSlice({
     status: undefined,
     addStatus: undefined,
     data: undefined,
+    total: undefined,
     getResponse: undefined,
     isLoading: {
       addBasketLoading: undefined,
@@ -53,6 +54,7 @@ export const basketSlice = createSlice({
     [getBasket.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.getResponse = action.payload.data;
+      state.total = action.payload.total;
     },
     [getBasket.rejected]: state => {
       state.getBasketLoading = false;

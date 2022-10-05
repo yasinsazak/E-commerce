@@ -20,7 +20,7 @@ export const AddressCard = ({item, onPress}) => {
     <View style={style.body}>
       <View style={style.container}>
         <View style={style.innerContainer}>
-          <Icon name="map-marker" size={20} color={Colors.RED} />
+          <Icon name="map-marker" size={25} color={Colors.RED} />
           <View style={style.title}>
             <Text style={style.city}>{item.city}-</Text>
             <Text style={style.town}>{item.town}</Text>
@@ -33,11 +33,11 @@ export const AddressCard = ({item, onPress}) => {
           <Text style={style.surname}>{item.surname}</Text>
         </View>
       </View>
-      <View>
+      <View style={style.button}>
         <Button
           theme="sixth"
           icon={'delete'}
-          size={20}
+          size={25}
           color={Colors.RED}
           onPress={onPress}
         />

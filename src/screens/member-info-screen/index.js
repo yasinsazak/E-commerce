@@ -7,6 +7,7 @@ import Colors from '../../utils/colors';
 import {getMemberInfo} from '../../api';
 
 import style from './style';
+import {Title} from '../../components';
 
 export const MemberInfoScreen = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export const MemberInfoScreen = () => {
 
   return (
     <View style={style.body}>
+      <Title name={'Kullanıcı Bilgileri'} />
       <View style={style.innerContainer}>
         <Icon name={'account'} size={20} color={Colors.RED} />
         <Text style={style.title}>İsim Soyisim:</Text>

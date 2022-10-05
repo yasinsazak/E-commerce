@@ -18,7 +18,7 @@ export const Products = ({url, item}) => {
 
   useEffect(() => {
     status === 'success' &&
-      navigation.navigate('product-detail-screen', {item: data});
+      navigation.navigate('product-detail-screen', {item: data, id: data.id});
   }, [status]);
 
   const openProductsDetailScreen = () => {

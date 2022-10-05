@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import style from './style';
 
-import {Categories} from '../../components';
+import {Categories, Title} from '../../components';
 import {getFirstCategories} from '../../api';
 import {useNavigation} from '@react-navigation/native';
 
@@ -36,7 +36,7 @@ export const CategoriesScreen = ({item}) => {
 
   return (
     <View style={style.body}>
-      <Text style={style.title}>Kategoriler</Text>
+      <Title name={'Kategoriler'} />
       <View style={style.inner_container}>
         <FlatList
           data={data}

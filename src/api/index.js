@@ -223,18 +223,50 @@ const removeAddressProcess = createAsyncThunk(
   },
 );
 
-const addBasket = createAsyncThunk('basket/addBasket', async data => {
-  const {product_id, qty} = data;
-  const params = new FormData();
-  params.append('product_id', product_id);
-  params.append('qty', qty);
-  try {
-    const res = await axios.post('addBasket', params);
-    return res.data;
-  } catch (error) {
-    console.log(error);
-  }
-});
+const toggleFavoritteProcess = createAsyncThunk(
+  'favoritte/toggleFavoritteProcess',
+  async (data, thunkAPI) => {
+    const {product_id} = data;
+    const params = new FormData();
+    params.append('product_id', product_id);
+    try {
+      const res = await axios.post('toggleFavoritte', params);
+      thunkAPI.dispatch(getFavoritteList());
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const getFavoritteList = createAsyncThunk(
+  'favoritte/getFavoritteList',
+  async () => {
+    try {
+      const res = await axios.get('favoritte');
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+const addBasket = createAsyncThunk(
+  'basket/addBasket',
+  async (data, thunkAPI) => {
+    const {product_id, qty} = data;
+    const params = new FormData();
+    params.append('product_id', product_id);
+    params.append('qty', qty);
+    try {
+      const res = await axios.post('addBasket', params);
+      thunkAPI.dispatch(getBasket());
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
 
 const editBasket = createAsyncThunk(
   'basket/editBasket',
@@ -242,6 +274,7 @@ const editBasket = createAsyncThunk(
     const {rowID, qty} = data;
     const params = new FormData();
     params.append('rowID', rowID);
+    params.append('qty', qty);
     try {
       const res = await axios.post('updateCart', params);
       thunkAPI.dispatch(getBasket());
@@ -400,6 +433,23 @@ const getProductDetails = createAsyncThunk(
   },
 );
 
+const searchProductProcess = createAsyncThunk(
+  'searchProduct/searchProductProcess',
+  async data => {
+    const {keywords, page, per_page} = data;
+    const params = new FormData();
+    params.append('keywords', keywords);
+    params.append('page', page);
+    params.append('per_page', per_page);
+    try {
+      const res = await axios.post('searchProduct', params);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
 export {
   loginProcess,
   logoutProcess,
@@ -411,6 +461,8 @@ export {
   saveAddressProcess,
   updateAddressProcess,
   removeAddressProcess,
+  toggleFavoritteProcess,
+  getFavoritteList,
   getMemberInfo,
   addBasket,
   getBasket,
@@ -425,4 +477,5 @@ export {
   getProducts,
   getBrandProductList,
   getProductDetails,
+  searchProductProcess,
 };

@@ -4,7 +4,7 @@ import {View, FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 
-import {Categories} from '../../components';
+import {Categories, Title} from '../../components';
 import {getSecondCategories} from '../../api';
 
 import style from './style';

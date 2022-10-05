@@ -7,6 +7,7 @@ import {
   SecondCategoriesScreen,
   ThirdCategoriesScreen,
   ProductsScreen,
+  FavoritteScreen,
 } from '../screens';
 import Colors from '../utils/colors';
 
@@ -49,6 +50,7 @@ export const CategoryStack = () => {
           headerStyle: {backgroundColor: Colors.BLACK},
         })}
       />
+      <Stack.Screen name="favorite-screen" component={FavoritteScreen} />
     </Stack.Navigator>
   );
 };

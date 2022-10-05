@@ -24,6 +24,8 @@ import {
   getAddressSlice,
   saveAddressSlice,
   removeAddressSlice,
+  favoritteSlice,
+  searchProductSlice,
 } from './slice';
 
 import logger from 'redux-logger';
@@ -48,6 +50,8 @@ const reducer = combineReducers({
   getAddress: getAddressSlice,
   saveAddress: saveAddressSlice,
   removeAddress: removeAddressSlice,
+  favoritte: favoritteSlice,
+  searchProduct: searchProductSlice,
 });
 
 export const store = configureStore({

@@ -17,6 +17,8 @@ import getTownSlice from './getTownSlice';
 import getAddressSlice from './getAddressSlice';
 import saveAddressSlice from './saveAddressSlice';
 import removeAddressSlice from './removeAddressSlice';
+import favoritteSlice from './favoritteSlice';
+import searchProductSlice from './searchProductSlice';
 
 export {
   getSlidersSlice,
@@ -38,4 +40,6 @@ export {
   saveAddressSlice,
   removeAddressSlice,
   updateAddressSlice,
+  favoritteSlice,
+  searchProductSlice,
 };

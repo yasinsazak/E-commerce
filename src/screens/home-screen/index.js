@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {View, Image, FlatList, Text, ScrollView} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Image, FlatList, Text, ScrollView, Alert} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
 import style from './style';
@@ -12,6 +12,8 @@ import {useNavigation} from '@react-navigation/native';
 export const HomeScreen = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+
+  const [keywords, setKeywords] = useState('');
 
   const {data, status, isLoading, base_url} = useSelector(
     state => state.sliders,
@@ -51,6 +53,14 @@ export const HomeScreen = () => {
     return <Products item={item} url={main_products_base_url} />;
   };
 
+  const searchProducts = () => {
+    if (value !== '') {
+      navigation.navigate('search-product-screen', {keywords: value});
+    } else {
+      Alert.alert('Ne Aramak istediğinizi yazınız');
+    }
+  };
+
   useEffect(() => {
     dispatch(getSliders());
   }, [status]);
@@ -72,12 +82,11 @@ export const HomeScreen = () => {
         }}
       />
       <Input
-        keyboardType="email-address"
         theme="secondary"
         placeholder={'Ara'}
-        value={null}
-        setValue={null}
-        onPress={null}
+        value={keywords}
+        setValue={setKeywords}
+        onPress={searchProducts}
         right="magnify"
       />
       <ScrollView>

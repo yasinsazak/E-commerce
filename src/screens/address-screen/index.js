@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useState} from 'react';
 import {View, Text, Alert, FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {Button, Input} from '../../components';
+import {Button, Input, Title} from '../../components';
 import Colors from '../../utils/colors';
 
 import {AddressCard} from '../../components';
@@ -29,6 +29,16 @@ export const AddressScreen = () => {
 
   return (
     <View style={style.body}>
+      <Title name={'Adreslerim'} />
+      <View style={style.button}>
+        <Button
+          theme="primary"
+          buttonText={'Adres ekle'}
+          onPress={() => {
+            navigation.navigate('add-address-screen');
+          }}
+        />
+      </View>
       <View>
         <FlatList
           data={data}
@@ -36,13 +46,7 @@ export const AddressScreen = () => {
           keyExtractor={item => item.id}
         />
       </View>
-      <Button
-        theme="secondary"
-        buttonText={'Adres ekle'}
-        onPress={() => {
-          navigation.navigate('add-address-screen');
-        }}
-      />
+      <View></View>
     </View>
   );
 };

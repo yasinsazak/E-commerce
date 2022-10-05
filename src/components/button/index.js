@@ -7,14 +7,14 @@ import style from './style';
 
 export const Button = ({theme, buttonText, onPress, icon, size, color}) => {
   return (
-    <View style={style[theme].body}>
-      <TouchableOpacity style={style[theme].button} onPress={onPress}>
-        <View style={style[theme].leftContainer}>
+    <View style={style[theme]?.body}>
+      <TouchableOpacity style={style[theme]?.button} onPress={onPress}>
+        <View style={style[theme]?.leftContainer}>
           {theme == 'fifth' && (
             <Icon name={icon} size={25} color={Colors.GRAY} />
           )}
           {theme != 'sixth' && (
-            <Text style={style[theme].buttonText}>{buttonText}</Text>
+            <Text style={style[theme]?.buttonText}>{buttonText}</Text>
           )}
         </View>
         {theme == 'fifth' && (

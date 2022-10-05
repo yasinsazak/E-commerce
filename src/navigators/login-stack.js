@@ -12,6 +12,7 @@ import {
   MemberInfoScreen,
   AddressScreen,
   AddAddressScreen,
+  FavoritteScreen,
 } from '../screens';
 import {checkSignedIn} from '../redux/slice/authenticationSlice';
 
@@ -54,6 +55,7 @@ export const LoginStack = () => {
       <Stack.Screen name="member-info-screen" component={MemberInfoScreen} />
       <Stack.Screen name="address-screen" component={AddressScreen} />
       <Stack.Screen name="add-address-screen" component={AddAddressScreen} />
+      <Stack.Screen name="favorite-screen" component={FavoritteScreen} />
     </Stack.Navigator>
   );
 };

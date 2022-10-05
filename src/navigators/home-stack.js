@@ -2,7 +2,13 @@ import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {HomeScreen, ProductDetailScreen, BrandProductScreen} from '../screens';
+import {
+  HomeScreen,
+  ProductDetailScreen,
+  BrandProductScreen,
+  FavoritteScreen,
+  SearchProductScreen,
+} from '../screens';
 import Colors from '../utils/colors';
 
 const Stack = createNativeStackNavigator();
@@ -23,9 +29,14 @@ export const HomeStack = () => {
         name="brand-product-screen"
         component={BrandProductScreen}
       />
+      <Stack.Screen name="favorite-screen" component={FavoritteScreen} />
       <Stack.Screen
         name="product-detail-screen"
         component={ProductDetailScreen}
+      />
+      <Stack.Screen
+        name="search-product-screen"
+        component={SearchProductScreen}
       />
     </Stack.Navigator>
   );

@@ -11,11 +11,6 @@ export const AuthStack = () => {
       <StatusBar animated={true} backgroundColor={Colors.BLACK} />
       <NavigationContainer>
         <AppTab />
-        {
-          //isauthan 0 loginstack
-          //isauthan 1 apptab
-          //isauthan -1 splasshscreen
-        }
       </NavigationContainer>
     </SafeAreaView>
   );

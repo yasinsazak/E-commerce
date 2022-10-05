@@ -27,11 +27,13 @@ export const AccountScreen = () => {
         }}
       />
       <Button
-        buttonText={'Siparişlerim'}
+        buttonText={'Favorilerim'}
         theme="fifth"
-        icon={'clock-check-outline'}
+        icon={'heart'}
+        onPress={() => {
+          navigation.navigate('favorite-screen');
+        }}
       />
-      <Button buttonText={'Favorilerim'} theme="fifth" icon={'heart'} />
       <Button
         buttonText={'Adreslerim'}
         theme="fifth"

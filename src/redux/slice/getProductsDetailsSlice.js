@@ -9,6 +9,7 @@ export const getProductsDetailSlice = createSlice({
     status: undefined,
     isLoading: false,
     images: undefined,
+    isFavoritte: false,
   },
   extraReducers: {
     [getProductDetails.pending]: state => {
@@ -19,6 +20,7 @@ export const getProductsDetailSlice = createSlice({
       state.data = action.payload.data;
       state.status = action.payload.status;
       state.images = action.payload.images;
+      state.isFavoritte = action.payload.isFavoritte;
     },
     [getProductDetails.rejected]: (state, action) => {
       state.status = action.payload.status;

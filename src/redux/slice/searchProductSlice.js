@@ -17,7 +17,7 @@ export const searchProductSlice = createSlice({
       state.isLoading = false;
       state.data = action.paylaod.data;
       state.status = action.paylaod.status;
-      state.base_url = action.paylaod.base_url;
+      state.base_url = action.paylaod.image_path;
     },
     [searchProductProcess.rejected]: (state, action) => {
       state.isLoading = false;

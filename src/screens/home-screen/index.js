@@ -54,8 +54,8 @@ export const HomeScreen = () => {
   };
 
   const searchProducts = () => {
-    if (value !== '') {
-      navigation.navigate('search-product-screen', {keywords: value});
+    if (keywords !== '') {
+      navigation.navigate('search-product-screen', {keywords: keywords});
     } else {
       Alert.alert('Ne Aramak istediğinizi yazınız');
     }

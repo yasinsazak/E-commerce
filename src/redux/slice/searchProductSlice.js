@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {searchProductProcess} from '../../api';
+
+import { searchProductProcess } from '../../api';
 
 export const searchProductSlice = createSlice({
   name: 'searchProduct',
@@ -15,13 +16,12 @@ export const searchProductSlice = createSlice({
     },
     [searchProductProcess.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.data = action.paylaod.data;
-      state.status = action.paylaod.status;
-      state.base_url = action.paylaod.image_path;
+      state.data = action.payload.data;
+      state.status = action.payload.status;
+      state.base_url = action.payload.image_path;
     },
-    [searchProductProcess.rejected]: (state, action) => {
+    [searchProductProcess.rejected]: state => {
       state.isLoading = false;
-      state.status = action.paylaod.status;
     },
   },
 });

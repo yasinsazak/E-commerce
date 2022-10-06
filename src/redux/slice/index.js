@@ -41,5 +41,5 @@ export {
   removeAddressSlice,
   updateAddressSlice,
   favoritteSlice,
-  searchProductSlice,
+  searchProductSlice
 };

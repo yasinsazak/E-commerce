@@ -15,7 +15,6 @@ import style from './style';
 
 import {useDispatch, useSelector} from 'react-redux';
 import Colors from '../../utils/colors';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 
 export const ProductDetailScreen = ({route}) => {

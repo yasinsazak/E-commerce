@@ -2,7 +2,7 @@ import {createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_BASE_URL = 'http://eticaret.demo.pigasoft.com/apiv1/';
+const API_BASE_URL = 'https://eticaret.demo.pigasoft.com/apiv1/';
 const API_KEY = 'SSVa97j7z83nMXDzhmmdHSSLPG9NueDf3J6BgCSS';
 
 axios.defaults.baseURL = API_BASE_URL;
